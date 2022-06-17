@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -45,12 +48,15 @@ namespace JSON_Editor
             }
         }
 
+        const string PROGRAM_TITLE = "Edytor JSON";
         const string DEFAULT_CATEGORY_NAME = "Nowa kategoria";
         const string DEFAULT_SUBCATEGORY_NAME = "Nowa podkategoria";
         const string DEFAULT_ATTRIBUTE_NAME = "Nowa właściwość";
 
         NodeSorter nodeSorter = new NodeSorter();
         int attributeTypeIndex;
+
+        Dictionary<string, Dictionary<string, object>> data = new Dictionary<string, Dictionary<string, object>>();
 
         private void createButton_Click(object sender, EventArgs e)
         {
@@ -64,12 +70,19 @@ namespace JSON_Editor
 
         private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
-            
+            Text = PROGRAM_TITLE + " - " + saveFileDialog1.FileName;
+
+            var jsonOptions = new JsonSerializerOptions();
+            jsonOptions.WriteIndented = true;
+
+            string json = JsonSerializer.Serialize(data, jsonOptions);
+
+            File.WriteAllText(saveFileDialog1.FileName, json);
         }
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
-            loadedFileLabel.Text = openFileDialog1.FileName;
+            Text = PROGRAM_TITLE + " - " + openFileDialog1.FileName;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -113,10 +126,12 @@ namespace JSON_Editor
 
         private void addCategoryButton_Click(object sender, EventArgs e)
         {
-            TreeNode newNode = new TreeNode(GetNodeName(DEFAULT_CATEGORY_NAME, treeView1.Nodes));
+            string nodeName = GetNodeName(DEFAULT_CATEGORY_NAME, treeView1.Nodes);
+            TreeNode newNode = new TreeNode(nodeName);
             newNode.Tag = Tags.Category;
 
             treeView1.Nodes.Add(newNode);
+            data.Add(nodeName, new Dictionary<string, object>());
         }
 
         void SwitchEditing(bool on)
@@ -130,6 +145,13 @@ namespace JSON_Editor
             attributeWindow.Enabled = false;
         }
 
+        void SwitchAttributeEditing(bool on)
+        {
+            attributeWindow.Enabled = on;
+            addAttributeButton.Enabled = !on;
+            addSubcategoryButton.Enabled = !on;
+        }
+
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
             TreeNode node = treeView1.SelectedNode;
@@ -140,7 +162,7 @@ namespace JSON_Editor
 
             if (node.Tag.Equals(Tags.Attribute))
             {
-                attributeWindow.Enabled = true;
+                SwitchAttributeEditing(true);
             }
         }
 
@@ -154,31 +176,25 @@ namespace JSON_Editor
             }
         }
 
-        private void nameBox_TextChanged(object sender, EventArgs e)
-        {
-            TreeNode node = treeView1.SelectedNode;
-            if (node == null || nameBox.Text == node.Text) return;
-            
-            if (nameBox.Text != "")
-            {
-                node.Text = GetNodeName(nameBox.Text, treeView1.Nodes);
-            }
-            else
-            {
-                node.Text = DEFAULT_CATEGORY_NAME;
-            }
-        }
-
         private void deleteButton_Click(object sender, EventArgs e)
         {
             TreeNode node = treeView1.SelectedNode;
             if (node == null) return;
 
+            if (node.Tag.Equals(Tags.Category))
+            {
+                data.Remove(node.Text);
+            }
+            
             node.Remove();
 
             if (treeView1.SelectedNode == null)
             {
                 SwitchEditing(false);
+            }
+            else
+            {
+                SwitchAttributeEditing(false);
             }
         }
 
@@ -192,6 +208,12 @@ namespace JSON_Editor
 
             node.Nodes.Add(subNode);
             node.Expand();
+
+            //Dictionary<string, object> parentCategory;
+            foreach (string nodeName in node.FullPath.Split('\\'))
+            {
+
+            }
         }
 
         private void addAttributeButton_Click(object sender, EventArgs e)
@@ -217,11 +239,18 @@ namespace JSON_Editor
             SwitchEditing(false);
         }
 
-        private void submitAttributeButton_Click(object sender, EventArgs e)
+        private void submitButton_Click(object sender, EventArgs e)
         {
-            if (attributeTypeIndex == 0)
-            {
+            TreeNode node = treeView1.SelectedNode;
+            if (node == null) return;
 
+            if (nameBox.Text != "")
+            {
+                node.Text = GetNodeName(nameBox.Text, node.Parent != null ? node.Parent.Nodes : treeView1.Nodes);
+            }
+            else
+            {
+                node.Text = DEFAULT_CATEGORY_NAME;
             }
         }
     }
