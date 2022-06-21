@@ -68,12 +68,52 @@ namespace JSON_Editor
             openFileDialog1.ShowDialog();
         }
 
+        void SaveNode(TreeNode node, TreeNode parentNode = null)
+        {
+            if (node.Tag.Equals(Tags.Attribute)) return;
+
+            dynamic dataToSaveTo = data;
+            int dataIndex = 0;
+            string[] nodeNames = node.FullPath.Split('\\');
+            string stuffToPrint = "";
+            foreach (string nodeName in nodeNames)
+            {
+                if (dataIndex == nodeNames.Length - 1) break;
+
+                stuffToPrint += " -> " + nodeName;
+                dataToSaveTo = dataToSaveTo[nodeName];
+
+                dataIndex++;
+            }
+
+            Console.WriteLine(stuffToPrint);
+
+            dataToSaveTo.Add(node.Text, new Dictionary<string, object>());
+
+            foreach (TreeNode subNode in node.Nodes)
+            {
+                SaveNode(subNode);
+            }
+        }
+
+        void SaveTreeView()
+        {
+            data.Clear();
+
+            foreach (TreeNode node in treeView1.Nodes)
+            {
+                SaveNode(node);
+            }
+        }
+
         private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
             Text = PROGRAM_TITLE + " - " + saveFileDialog1.FileName;
 
             var jsonOptions = new JsonSerializerOptions();
             jsonOptions.WriteIndented = true;
+
+            SaveTreeView();
 
             string json = JsonSerializer.Serialize(data, jsonOptions);
 
@@ -131,7 +171,6 @@ namespace JSON_Editor
             newNode.Tag = Tags.Category;
 
             treeView1.Nodes.Add(newNode);
-            data.Add(nodeName, new Dictionary<string, object>());
         }
 
         void SwitchEditing(bool on)
@@ -180,11 +219,6 @@ namespace JSON_Editor
         {
             TreeNode node = treeView1.SelectedNode;
             if (node == null) return;
-
-            if (node.Tag.Equals(Tags.Category))
-            {
-                data.Remove(node.Text);
-            }
             
             node.Remove();
 
@@ -208,12 +242,6 @@ namespace JSON_Editor
 
             node.Nodes.Add(subNode);
             node.Expand();
-
-            //Dictionary<string, object> parentCategory;
-            foreach (string nodeName in node.FullPath.Split('\\'))
-            {
-
-            }
         }
 
         private void addAttributeButton_Click(object sender, EventArgs e)

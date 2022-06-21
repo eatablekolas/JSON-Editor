@@ -107,7 +107,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
             this.splitContainer1.Size = new System.Drawing.Size(599, 483);
-            this.splitContainer1.SplitterDistance = 197;
+            this.splitContainer1.SplitterDistance = 140;
             this.splitContainer1.TabIndex = 2;
             // 
             // openButton
@@ -126,7 +126,7 @@
             // 
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(195, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(138, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -138,7 +138,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(396, 481);
+            this.tabControl1.Size = new System.Drawing.Size(453, 481);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -148,7 +148,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(388, 455);
+            this.tabPage1.Size = new System.Drawing.Size(445, 455);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Kategorie";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -167,7 +167,7 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.editWindow);
-            this.splitContainer2.Size = new System.Drawing.Size(382, 179);
+            this.splitContainer2.Size = new System.Drawing.Size(439, 179);
             this.splitContainer2.SplitterDistance = 140;
             this.splitContainer2.TabIndex = 1;
             // 
@@ -240,7 +240,7 @@
             // 
             this.addCategoryButton.Location = new System.Drawing.Point(7, 20);
             this.addCategoryButton.Name = "addCategoryButton";
-            this.addCategoryButton.Size = new System.Drawing.Size(127, 23);
+            this.addCategoryButton.Size = new System.Drawing.Size(125, 23);
             this.addCategoryButton.TabIndex = 0;
             this.addCategoryButton.Text = "Dodaj kategorię";
             this.addCategoryButton.UseVisualStyleBackColor = true;
@@ -256,7 +256,7 @@
             this.editWindow.Enabled = false;
             this.editWindow.Location = new System.Drawing.Point(0, 0);
             this.editWindow.Name = "editWindow";
-            this.editWindow.Size = new System.Drawing.Size(238, 179);
+            this.editWindow.Size = new System.Drawing.Size(295, 179);
             this.editWindow.TabIndex = 0;
             this.editWindow.TabStop = false;
             this.editWindow.Text = "Edytuj";
@@ -381,7 +381,7 @@
             this.treeView1.Location = new System.Drawing.Point(3, 3);
             this.treeView1.Name = "treeView1";
             this.treeView1.SelectedImageIndex = 0;
-            this.treeView1.Size = new System.Drawing.Size(382, 270);
+            this.treeView1.Size = new System.Drawing.Size(439, 270);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             this.treeView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.treeView1_MouseDown);
