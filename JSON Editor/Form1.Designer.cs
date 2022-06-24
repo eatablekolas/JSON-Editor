@@ -186,6 +186,8 @@
             // 
             // sortButton
             // 
+            this.sortButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.sortButton.Location = new System.Drawing.Point(7, 48);
             this.sortButton.Name = "sortButton";
             this.sortButton.Size = new System.Drawing.Size(127, 22);
@@ -196,10 +198,11 @@
             // 
             // toolPanel
             // 
+            this.toolPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.toolPanel.Controls.Add(this.addSubcategoryButton);
             this.toolPanel.Controls.Add(this.deleteButton);
             this.toolPanel.Controls.Add(this.addAttributeButton);
-            this.toolPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.toolPanel.Enabled = false;
             this.toolPanel.Location = new System.Drawing.Point(3, 76);
             this.toolPanel.Name = "toolPanel";
@@ -208,6 +211,8 @@
             // 
             // addSubcategoryButton
             // 
+            this.addSubcategoryButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.addSubcategoryButton.Location = new System.Drawing.Point(3, 3);
             this.addSubcategoryButton.Name = "addSubcategoryButton";
             this.addSubcategoryButton.Size = new System.Drawing.Size(127, 23);
@@ -218,6 +223,8 @@
             // 
             // deleteButton
             // 
+            this.deleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.deleteButton.Location = new System.Drawing.Point(2, 61);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(127, 34);
@@ -228,6 +235,8 @@
             // 
             // addAttributeButton
             // 
+            this.addAttributeButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.addAttributeButton.Location = new System.Drawing.Point(3, 32);
             this.addAttributeButton.Name = "addAttributeButton";
             this.addAttributeButton.Size = new System.Drawing.Size(127, 23);
@@ -238,6 +247,8 @@
             // 
             // addCategoryButton
             // 
+            this.addCategoryButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.addCategoryButton.Location = new System.Drawing.Point(7, 20);
             this.addCategoryButton.Name = "addCategoryButton";
             this.addCategoryButton.Size = new System.Drawing.Size(125, 23);
@@ -263,9 +274,11 @@
             // 
             // submitAttributeButton
             // 
+            this.submitAttributeButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.submitAttributeButton.Location = new System.Drawing.Point(10, 137);
             this.submitAttributeButton.Name = "submitAttributeButton";
-            this.submitAttributeButton.Size = new System.Drawing.Size(222, 34);
+            this.submitAttributeButton.Size = new System.Drawing.Size(276, 34);
             this.submitAttributeButton.TabIndex = 5;
             this.submitAttributeButton.Text = "Ustaw";
             this.submitAttributeButton.UseVisualStyleBackColor = true;
@@ -273,6 +286,8 @@
             // 
             // attributeWindow
             // 
+            this.attributeWindow.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.attributeWindow.Controls.Add(this.label3);
             this.attributeWindow.Controls.Add(this.numberBox);
             this.attributeWindow.Controls.Add(this.comboBox1);
@@ -282,7 +297,7 @@
             this.attributeWindow.Enabled = false;
             this.attributeWindow.Location = new System.Drawing.Point(3, 48);
             this.attributeWindow.Name = "attributeWindow";
-            this.attributeWindow.Size = new System.Drawing.Size(239, 83);
+            this.attributeWindow.Size = new System.Drawing.Size(286, 83);
             this.attributeWindow.TabIndex = 9;
             // 
             // label3
@@ -296,6 +311,8 @@
             // 
             // numberBox
             // 
+            this.numberBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.numberBox.Location = new System.Drawing.Point(60, 55);
             this.numberBox.Maximum = new decimal(new int[] {
             1000000000,
@@ -308,13 +325,15 @@
             0,
             -2147483648});
             this.numberBox.Name = "numberBox";
-            this.numberBox.Size = new System.Drawing.Size(169, 20);
+            this.numberBox.Size = new System.Drawing.Size(223, 20);
             this.numberBox.TabIndex = 8;
             this.numberBox.ThousandsSeparator = true;
             this.numberBox.Visible = false;
             // 
             // comboBox1
             // 
+            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBox1.FormattingEnabled = true;
@@ -325,7 +344,7 @@
             "string (tekst)"});
             this.comboBox1.Location = new System.Drawing.Point(7, 28);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(222, 21);
+            this.comboBox1.Size = new System.Drawing.Size(276, 21);
             this.comboBox1.TabIndex = 4;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -358,9 +377,11 @@
             // 
             // nameBox
             // 
+            this.nameBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.nameBox.Location = new System.Drawing.Point(56, 22);
             this.nameBox.Name = "nameBox";
-            this.nameBox.Size = new System.Drawing.Size(176, 20);
+            this.nameBox.Size = new System.Drawing.Size(233, 20);
             this.nameBox.TabIndex = 1;
             // 
             // label2
@@ -398,7 +419,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(388, 455);
+            this.tabPage2.Size = new System.Drawing.Size(445, 455);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Przedmioty";
             this.tabPage2.UseVisualStyleBackColor = true;
